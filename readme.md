@@ -6,10 +6,10 @@ The objective of this assignment is to implement a simple client program that is
 
 ```
 EchoClient> connect clouddatabases.i13.in.tum.de 5153
-EchoClient> Connection to MSRG Echo server established: /131.159.52.23 / 5153 EchoClient> send hello world
+EchoClient> Connection to MSRG Echo server established: /ddd.aaa.dd.xx / 5153 EchoClient> send hello world
 EchoClient> hello world
 EchoClient> disconnect
-EchoClient> Connection terminated: 131.159.52.23 / 5153
+EchoClient> Connection terminated: ddd.aaa.dd.xx  / 5153
 EchoClient> send hello again
 EchoClient> Error! Not connected!
 EchoClient> quit
