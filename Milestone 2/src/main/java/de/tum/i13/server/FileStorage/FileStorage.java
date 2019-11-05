@@ -81,7 +81,9 @@ public class FileStorage implements FileStorageInterface {
         // First pair in the map
         if(isEmpty(map)){
             FileMap fm = new FileMap(Constants.MAX_FILE_SIZE, key, value, this.path);
-            map.put(hash, fm);
+            synchronized (map){
+                map.put(hash, fm);
+            }
             return 0;
         }
         else{
@@ -106,7 +108,10 @@ public class FileStorage implements FileStorageInterface {
                     return 1;
                 }
                 else if(rr.getFirstHash() == null && rr.getLastHash() == null){
-                    map.put(hash, rr.getFm());
+                    synchronized (map){
+                        map.put(hash, rr.getFm());
+                    }
+
                 }
                 else{
                     int lastHash = rr.getLastHash();
@@ -114,10 +119,13 @@ public class FileStorage implements FileStorageInterface {
 
                     if(lastHash != oldHash){
                         FileMap fmOld = map.remove(oldHash);
-                        map.put(lastHash, fmOld);
+                        synchronized (map) {
+                            map.put(lastHash, fmOld);
+                        }
                     }
-                    map.put(firstHash, rr.getFm());
-
+                    synchronized (map) {
+                        map.put(firstHash, rr.getFm());
+                    }
                 }
             }
             return 0;

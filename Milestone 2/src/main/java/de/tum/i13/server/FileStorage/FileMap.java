@@ -160,7 +160,7 @@ public class FileMap implements FileMapInterface {
      * @param  key The key that we want to remove from database on disk
      * @return the value associated with key, null if the key is not present in the database
      */
-    public String remove(String key){
+    public synchronized String remove(String key){
         HashMap <String, String> hMap = read();
         String removed = hMap.remove(key);
         if(removed != null)
@@ -185,7 +185,7 @@ public class FileMap implements FileMapInterface {
      * the two filemap (the old one and the new one).
      * Returns a rebalanceReturn with null parameters if we updated tha value
      */
-    public rebalanceReturn addPair(String key, String value){
+    public synchronized rebalanceReturn addPair(String key, String value){
 
         rebalanceReturn retVal = null;
         if(this.maxSize == 1){
@@ -235,23 +235,6 @@ public class FileMap implements FileMapInterface {
             e.printStackTrace();
         }
 
-    }
-
-
-    /**
-     * Debug function. Remove it
-     */
-    public void print(FileMap fm){
-        HashMap<String, String> hMap = null;
-        try {
-            FileInputStream fis = new FileInputStream(fm.getFileName());
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            hMap = (HashMap<String, String>) ois.readObject();
-            ois.close();
-            fis.close();
-        } catch (ClassNotFoundException | IOException e) {
-            e.printStackTrace();
-        }
     }
 
     /**
