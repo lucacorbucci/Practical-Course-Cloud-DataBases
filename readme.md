@@ -2,6 +2,8 @@
 
 This repository contains all the milestones implemented during the course "Advanced Practical Course: Cloud Data Bases" @ Technische Universität München.
 
+The goal of this practical course was to develop a Distributed Database using Java.
+
 ## Milestone 1 ✅
 
 The objective of this assignment is to implement a simple client program that is able to establish a TCP connection to a given server and exchange text messages with it. The client should provide a command line-based interface that captures the user’s input and controls the interaction with the server. Besides connection establishment and tear down, the user must be able to pass messages to the server. These messages are in turn echoed back to the client where they are displayed to the user. A sequence of interactions is shown below.
