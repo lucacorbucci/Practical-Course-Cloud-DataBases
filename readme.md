@@ -72,3 +72,4 @@ During the forth milestone I implemented the following features:
 ## Milestone 5 ✅
 
 The goal of this assignment is to extend the distributed database that we wrote in the previous milestone adding new features. I added the possibility to protect a key,value pair using a password. All the previously developed API (PUT, GET, DELETE) now supports the password protection.
+
